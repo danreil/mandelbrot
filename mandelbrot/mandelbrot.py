@@ -34,11 +34,21 @@ def iter_map(c, max_iter):
         return 0
     else:
         return iter_num
+    
+    
+def histogram_coloring(iter_grid):
+    """Input: numpy array of iteration number for each cell or "pixel"
+    Perform calculations to plot the mandelbrot set using histogram coloring method
+    Find the array, of length max_iter, containing the number of pixels with that number
+    of iterations as its iter value, num_iter_per_pixel
+    Finally, return an array of same size as iter_grid, containing normalized values from
+    num_iter_per_pixel (see the wikipedia article)
+    """
 
 max_iter=500
 
 x_min,x_max = -2,1 # borders of grid to evaluate the iter_map over
-y_min,y_max = -1.5,1.5
+y_min,y_max = -1,1
 num_points = 500 # number of grid points between x_min,x_max (and y_min,y_max)
 x = np.linspace(x_min,x_max,num_points) # points on x and y axis to make grid
 y = np.linspace(y_min,y_max,num_points)        
@@ -53,3 +63,5 @@ for i in range(num_points):
 
 fig,ax = plt.subplots()
 ax.pcolormesh(grid,cmap='magma')
+
+
